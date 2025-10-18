@@ -12,7 +12,8 @@ public class Parser {
     }
 
     public String getNumbers(String input){
-
+        int start = input.indexOf("\n");
+        return input.substring(start + 1);
     }
 
 }
