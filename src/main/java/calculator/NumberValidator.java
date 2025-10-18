@@ -12,5 +12,9 @@ public class NumberValidator {
         return number;
     }
 
+    private boolean isEmpty(String token){
+        return token.isEmpty();
+    }
+
 
 }
