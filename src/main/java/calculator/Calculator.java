@@ -15,5 +15,14 @@ public class Calculator {
             delimiter.add(customDelimiter);
             input = parser.getNumbers(input);
         }
+
+        String[] tokens = delimiter.split(input);
+
+        int sum = 0;
+        for(String token : tokens){
+            sum += validator.parse(token);
+        }
+
+        return sum;
     }
 }
