@@ -13,7 +13,7 @@ public class Delimiter {
     }
 
     public void add(String customDelimiter){
-
+        delimiters.add(customDelimiter);
     }
 
     public String[] split(String input){
