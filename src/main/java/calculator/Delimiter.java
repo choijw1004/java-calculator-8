@@ -9,7 +9,7 @@ public class Delimiter {
     public Delimiter(){
         this.delimiters = new HashSet<>();
         delimiters.add(",");
-        delimiters.add(";");
+        delimiters.add(":");
     }
 
     public void add(String customDelimiter){
