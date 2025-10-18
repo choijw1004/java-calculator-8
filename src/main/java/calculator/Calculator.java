@@ -2,5 +2,8 @@ package calculator;
 
 public class Calculator {
     public int calculate(String input){
+        if(input.isEmpty()){
+            return 0;
+        }
     }
 }
