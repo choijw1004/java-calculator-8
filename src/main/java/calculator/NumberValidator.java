@@ -16,5 +16,9 @@ public class NumberValidator {
         return token.isEmpty();
     }
 
+    private int convertToInt(String token){
+        return Integer.parseInt(token);
+    }
+
 
 }
