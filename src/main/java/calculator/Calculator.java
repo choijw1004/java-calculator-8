@@ -5,5 +5,15 @@ public class Calculator {
         if(input.isEmpty()){
             return 0;
         }
+
+        Parser parser = new Parser();
+        Delimiter delimiter = new Delimiter();
+        NumberValidator validator = new NumberValidator();
+
+        if(parser.hasCustomDelimiter(input)){
+            String customDelimiter = parser.getDelimiter(input);
+            delimiter.add(customDelimiter);
+            input = parser.getNumbers(input);
+        }
     }
 }
