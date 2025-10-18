@@ -16,8 +16,8 @@ public class Delimiter {
         delimiters.add(customDelimiter);
     }
 
-    public String[] split(String input){
+    public String[] split(String string){
         String regex = "[" + String.join("", delimiters + " ]");
-        return input.split(regex);
+        return string.split(regex);
     }
 }
