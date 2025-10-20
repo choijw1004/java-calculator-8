@@ -1,13 +1,12 @@
 package calculator;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Delimiter {
-    private Set<String> delimiters;
+    private final List<String> delimiters = new ArrayList<>();
 
     public Delimiter(){
-        this.delimiters = new HashSet<>();
         delimiters.add(",");
         delimiters.add(":");
     }
