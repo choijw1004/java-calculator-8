@@ -1,16 +1,20 @@
 package calculator;
 
 public class Parser {
+    private static final String CUSTOM_DELIMITER_PREFIX = "//";
+    private static final String CUSTOM_DELIMITER_SUFFIX = "\n";
+    private static final String LITERAL_CUSTOM_DELIMITER_SUFFIX = "\\n";
+
     public boolean hasCustomDelimiter(String input){
-        return input.startsWith("//");
+        return input.startsWith(CUSTOM_DELIMITER_PREFIX);
     }
 
     public String getDelimiter(String input){
-        int start = "//".length();
-        int end = input.indexOf("\n");
+        int start = CUSTOM_DELIMITER_PREFIX.length();
+        int end = input.indexOf(CUSTOM_DELIMITER_SUFFIX);
 
         if(end == -1){
-            end = input.indexOf("\\n");
+            end = input.indexOf(LITERAL_CUSTOM_DELIMITER_SUFFIX);
         }
 
         if(end == -1 || end <= start){
@@ -27,12 +31,12 @@ public class Parser {
     }
 
     public String getNumbers(String input){
-        int start = input.indexOf("\n");
+        int start = input.indexOf(CUSTOM_DELIMITER_SUFFIX);
         if(start != -1){
             return input.substring(start + 1);
         }
 
-        start = input.indexOf("\\n");
+        start = input.indexOf(LITERAL_CUSTOM_DELIMITER_SUFFIX);
 
         if(start != -1){
             return input.substring(start + 2);
