@@ -17,7 +17,13 @@ public class Delimiter {
     }
 
     public String[] split(String string){
-        String regex = "[" + String.join("", delimiters) + "]";
+        String safeDelimiters = String.join("",delimiters)
+                .replace("\\","\\\\")
+                .replace("-","\\-")
+                .replace("^","\\^")
+                .replace("]", "\\]");
+
+        String regex = "[" + safeDelimiters + "]";
         return string.split(regex);
     }
 }
