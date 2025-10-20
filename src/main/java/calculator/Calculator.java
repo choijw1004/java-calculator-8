@@ -1,14 +1,28 @@
 package calculator;
 
 public class Calculator {
+    private final Parser parser;
+    private final Delimiter delimiter;
+    private final NumberValidator numberValidator;
+
+    private Calculator(Parser parser, Delimiter delimiter, NumberValidator numberValidator){
+        this.parser = parser;
+        this.delimiter = delimiter;
+        this.numberValidator = numberValidator;
+    }
+
+    public static Calculator getInstance(){
+        return new Calculator(
+                new Parser(),
+                new Delimiter(),
+                new NumberValidator()
+        );
+    }
+
     public int calculate(String input){
         if(input.isEmpty()){
             return 0;
         }
-
-        Parser parser = new Parser();
-        Delimiter delimiter = new Delimiter();
-        NumberValidator validator = new NumberValidator();
 
         if(parser.hasCustomDelimiter(input)){
             String customDelimiter = parser.getDelimiter(input);
@@ -20,7 +34,7 @@ public class Calculator {
 
         int sum = 0;
         for(String token : tokens){
-            sum += validator.parse(token);
+            sum += numberValidator.parse(token);
         }
 
         return sum;
