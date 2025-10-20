@@ -13,7 +13,17 @@ public class Parser {
             end = input.indexOf("\\n");
         }
 
-        return input.substring(start, end);
+        if(end == -1 || end <= start){
+            throw new IllegalArgumentException();
+        }
+
+        String delimiter = input.substring(start, end);
+
+        if(delimiter.length() != 1){
+            throw new IllegalArgumentException();
+        }
+
+        return delimiter;
     }
 
     public String getNumbers(String input){
